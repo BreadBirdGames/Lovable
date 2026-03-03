@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy00w63p5a1cu"]
 
-[ext_resource type="Script" uid="uid://cqeheycpx5i17" path="res://components/topbar.gd" id="1_gqpua"]
+[ext_resource type="Script" uid="uid://cqeheycpx5i17" path="res://pages/home/components/topbar.gd" id="1_gqpua"]
 
 [node name="Topbar" type="PanelContainer" unique_id=1150509319 node_paths=PackedStringArray("hp_label", "name_label")]
 anchors_preset = 10

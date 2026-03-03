@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://5fyvqbaa6u75"]
 
-[ext_resource type="Script" uid="uid://jpt6yhi6llsh" path="res://pages/home.gd" id="1_ejprr"]
-[ext_resource type="PackedScene" uid="uid://dy00w63p5a1cu" path="res://components/topbar.tscn" id="3_v2gta"]
+[ext_resource type="Script" uid="uid://jpt6yhi6llsh" path="res://pages/home/home.gd" id="1_ejprr"]
+[ext_resource type="PackedScene" uid="uid://dy00w63p5a1cu" path="res://pages/home/components/topbar.tscn" id="3_v2gta"]
 [ext_resource type="Texture2D" uid="uid://1gb3r0agepb5" path="res://assets/textures/creature.png" id="4_4e318"]
-[ext_resource type="PackedScene" uid="uid://biau2mh4whm22" path="res://components/stat_bar.tscn" id="5_2ouud"]
+[ext_resource type="PackedScene" uid="uid://biau2mh4whm22" path="res://pages/home/components/stat_bar.tscn" id="5_2ouud"]
 [ext_resource type="Texture2D" uid="uid://dd2e3egduncg" path="res://assets/icons/bed.svg" id="5_ejprr"]
 [ext_resource type="Texture2D" uid="uid://bt27qknt6gy6w" path="res://assets/icons/food.svg" id="5_xbe33"]
 [ext_resource type="Texture2D" uid="uid://bpubptis0rdqg" path="res://assets/icons/water.svg" id="6_v2gta"]

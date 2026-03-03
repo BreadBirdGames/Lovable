@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://b3blt4i3dc5vf"]
+[gd_scene format=3 uid="uid://dqtpln88ax3ib"]
 
-[ext_resource type="Script" uid="uid://e1n6x2b47cce" path="res://pages/tips.gd" id="1_0nowv"]
+[ext_resource type="Script" uid="uid://jv582sja366" path="res://pages/physical/physical_index.gd" id="1_cf6fp"]
 
-[node name="Tips" type="Control" unique_id=1897571648]
+[node name="Health" type="Control" unique_id=1897571648]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0nowv")
+script = ExtResource("1_cf6fp")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1930921117]
 layout_mode = 1
@@ -21,4 +21,4 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CenterContainer" unique_id=1006309676]
 layout_mode = 2
-text = "Tips"
+text = "Physical stuff"

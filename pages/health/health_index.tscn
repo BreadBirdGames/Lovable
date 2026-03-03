@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bx2yjg21xihad"]
 
-[ext_resource type="Script" uid="uid://bj76dpc0rinml" path="res://pages/health_index.gd" id="1_edvyp"]
+[ext_resource type="Script" uid="uid://bj76dpc0rinml" path="res://pages/health/health_index.gd" id="1_edvyp"]
 
 [node name="Health" type="Control" unique_id=1897571648]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://biimbg7as7vn4"]
 
-[ext_resource type="Script" uid="uid://dgxxh10e5a8b8" path="res://components/settings/settings_input.gd" id="1_qvafy"]
+[ext_resource type="Script" uid="uid://dgxxh10e5a8b8" path="res://pages/settings/components/settings_input.gd" id="1_qvafy"]
 
 [node name="SettingsInput" type="PanelContainer" unique_id=106771582 node_paths=PackedStringArray("edit", "label")]
 anchors_preset = 10

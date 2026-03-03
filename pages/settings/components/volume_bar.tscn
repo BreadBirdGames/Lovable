@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlcjr2rnx4o1a"]
 
-[ext_resource type="Script" uid="uid://bdwccufl4h65j" path="res://components/settings/volume_bar.gd" id="1_18sxn"]
+[ext_resource type="Script" uid="uid://bdwccufl4h65j" path="res://pages/settings/components/volume_bar.gd" id="1_18sxn"]
 
 [node name="VolumeBar" type="PanelContainer" unique_id=395744294 node_paths=PackedStringArray("slider", "label")]
 anchors_preset = 10

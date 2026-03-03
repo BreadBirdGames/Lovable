@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c22tgny4ob6vr"]
 
-[ext_resource type="Script" uid="uid://bdb670tubnk3c" path="res://pages/settings.gd" id="1_1ofq1"]
-[ext_resource type="PackedScene" uid="uid://dlcjr2rnx4o1a" path="res://components/settings/volume_bar.tscn" id="2_q5qkr"]
-[ext_resource type="PackedScene" uid="uid://xgoixmpynp0k" path="res://components/settings/settings_check.tscn" id="3_ll8ay"]
-[ext_resource type="PackedScene" uid="uid://biimbg7as7vn4" path="res://components/settings/settings_input.tscn" id="4_kbnjn"]
+[ext_resource type="Script" uid="uid://bdb670tubnk3c" path="res://pages/settings/settings.gd" id="1_1ofq1"]
+[ext_resource type="PackedScene" uid="uid://dlcjr2rnx4o1a" path="res://pages/settings/components/volume_bar.tscn" id="2_q5qkr"]
+[ext_resource type="PackedScene" uid="uid://xgoixmpynp0k" path="res://pages/settings/components/settings_check.tscn" id="3_ll8ay"]
+[ext_resource type="PackedScene" uid="uid://biimbg7as7vn4" path="res://pages/settings/components/settings_input.tscn" id="4_kbnjn"]
 
 [node name="Settings" type="Control" unique_id=1897571648]
 layout_mode = 3

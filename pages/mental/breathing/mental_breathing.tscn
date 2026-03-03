@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2h13fs0ms1pi"]
 
-[ext_resource type="Script" uid="uid://bs8mm22xrjwsy" path="res://pages/mental_breathing.gd" id="1_n28mw"]
+[ext_resource type="Script" uid="uid://bs8mm22xrjwsy" path="res://pages/mental/breathing/mental_breathing.gd" id="1_n28mw"]
 [ext_resource type="Texture2D" uid="uid://1gb3r0agepb5" path="res://assets/textures/creature.png" id="2_oc5ae"]
 
 [node name="MentalBreathing" type="Control" unique_id=82789646 node_paths=PackedStringArray("timer", "instruction_label", "repeat_label", "time_label", "end_button", "image")]

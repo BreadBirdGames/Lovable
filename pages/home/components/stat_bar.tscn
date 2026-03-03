@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://biau2mh4whm22"]
 
-[ext_resource type="Script" uid="uid://dhqknbthakxqk" path="res://components/stat_bar.gd" id="1_14kv3"]
+[ext_resource type="Script" uid="uid://dhqknbthakxqk" path="res://pages/home/components/stat_bar.gd" id="1_14kv3"]
 [ext_resource type="Texture2D" uid="uid://bon2p88l80wiq" path="res://icon.svg" id="2_ue3ra"]
 
 [node name="StatBar" type="PanelContainer" unique_id=785875699 node_paths=PackedStringArray("progress", "texture")]
