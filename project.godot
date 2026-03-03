@@ -16,11 +16,16 @@ config/features=PackedStringArray("4.6")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bllhnysj6wuh2"
+
 [autoload]
 
 NotificationHandler="*res://globals/notification_handler.gd"
 Stats="*uid://dncp7c7kk5j5j"
 PageManager="*uid://dcv7rathwyh1y"
+SettingsStore="*uid://dtp5tj2cjka03"
 
 [display]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c22tgny4ob6vr"]
 
 [ext_resource type="Script" uid="uid://bdb670tubnk3c" path="res://pages/settings.gd" id="1_1ofq1"]
+[ext_resource type="PackedScene" uid="uid://dlcjr2rnx4o1a" path="res://components/settings/volume_bar.tscn" id="2_q5qkr"]
 
 [node name="Settings" type="Control" unique_id=1897571648]
 layout_mode = 3
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ofq1")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1930921117]
+[node name="Panel" type="PanelContainer" parent="." unique_id=1586297693]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +20,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer" unique_id=1006309676]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=948188916]
 layout_mode = 2
-text = "Settings!"
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=165719317]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=11859122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="MasterVolume" parent="Panel/MarginContainer/VBoxContainer" unique_id=395744294 instance=ExtResource("2_q5qkr")]
+layout_mode = 2
+title = "Master"
+property = "master_vol"
+
+[node name="SFXVolume" parent="Panel/MarginContainer/VBoxContainer" unique_id=168483799 instance=ExtResource("2_q5qkr")]
+layout_mode = 2
+title = "Sound effects"
+property = "sfx_vol"
+
+[node name="MusicVolume" parent="Panel/MarginContainer/VBoxContainer" unique_id=159668307 instance=ExtResource("2_q5qkr")]
+layout_mode = 2
+title = "Music"
+property = "music_vol"
+
+[node name="VoiceVolume" parent="Panel/MarginContainer/VBoxContainer" unique_id=1014294631 instance=ExtResource("2_q5qkr")]
+layout_mode = 2
+title = "Voice acting"
+property = "voice_vol"
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1667069321]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1387481957]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Save"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
