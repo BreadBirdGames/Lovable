@@ -13,22 +13,25 @@ config_version=5
 config/name="Healthgochi"
 run/main_scene="uid://5fyvqbaa6u75"
 config/features=PackedStringArray("4.6")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [autoload]
 
-NotificationHandler="*res://autoloads/NotificationHandler.gd"
+NotificationHandler="*res://globals/NotificationHandler.gd"
+Stats="*uid://dncp7c7kk5j5j"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
-window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/NotificationSchedulerPlugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/NotificationSchedulerPlugin/plugin.cfg", "res://addons/fontawesome/plugin.cfg")
 
 [rendering]
 
