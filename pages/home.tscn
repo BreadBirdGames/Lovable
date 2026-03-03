@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://5fyvqbaa6u75"]
+
+[ext_resource type="Script" uid="uid://jpt6yhi6llsh" path="res://pages/home.gd" id="1_ejprr"]
+[ext_resource type="PackedScene" uid="uid://dy00w63p5a1cu" path="res://components/topbar.tscn" id="3_v2gta"]
+[ext_resource type="Texture2D" uid="uid://1gb3r0agepb5" path="res://assets/textures/creature.png" id="4_4e318"]
+[ext_resource type="PackedScene" uid="uid://biau2mh4whm22" path="res://components/stat_bar.tscn" id="5_2ouud"]
+
+[node name="Home" type="Control" unique_id=1181107481]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejprr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=158165696]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Topbar" parent="VBoxContainer" unique_id=1931740836 instance=ExtResource("3_v2gta")]
+custom_minimum_size = Vector2(0, 78)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1958989831]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1772089868]
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=109189678]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=2040649547]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TipsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1067160297]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Tips"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=716396902]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_4e318")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer" unique_id=1659335287]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel" unique_id=284795596]
+layout_mode = 2
+
+[node name="FoodBar" parent="VBoxContainer/Panel/VBoxContainer" unique_id=101184246 instance=ExtResource("5_2ouud")]
+layout_mode = 2
+
+[node name="WaterBar" parent="VBoxContainer/Panel/VBoxContainer" unique_id=1887667706 instance=ExtResource("5_2ouud")]
+layout_mode = 2
+property = "water"
+
+[node name="SleepBar" parent="VBoxContainer/Panel/VBoxContainer" unique_id=1352988783 instance=ExtResource("5_2ouud")]
+layout_mode = 2
+property = "sleep"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/VBoxContainer" unique_id=249070076]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MentalPage" type="Button" parent="VBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=635587419]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mental"
+
+[node name="HealthPage" type="Button" parent="VBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=841433384]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="PhysicalPage" type="Button" parent="VBoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1342141912]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Physical"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/TipsButton" to="." method="_on_tips_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/VBoxContainer/HBoxContainer/MentalPage" to="." method="_on_mental_page_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/VBoxContainer/HBoxContainer/HealthPage" to="." method="_on_health_page_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/VBoxContainer/HBoxContainer/PhysicalPage" to="." method="_on_physical_page_pressed"]
