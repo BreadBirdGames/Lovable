@@ -36,6 +36,10 @@ func goto_page(_page_t: Page.Type) -> void:
 	page.set_active(true)
 
 func go_back() -> void:
+	if page_stack.size() == 1:
+		get_tree().quit()
+		return
+
 	var current_page: Page = page_stack.pop_back() as Page
 	current_page.queue_free()
 
