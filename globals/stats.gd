@@ -11,6 +11,22 @@ var _water: float
 var _sleep: float
 var _hp: int
 
+func calc_health() -> void:
+	hp = roundi(
+		((sleep/100) * 33.33) + 
+		((sleep/100) * 33.33) + 
+		((sleep/100) * 33.33)
+	)
+
+func reset_stats() -> void:
+	sleep = 100
+	water = 100
+	food = 100
+	hp = 100
+
+func _ready() -> void:
+	reset_stats()
+
 var hp: int:
 	get:
 		return _hp
@@ -23,7 +39,6 @@ var hp: int:
 
 		if value < 0:
 			died.emit()
-
 
 var food: float:
 	get:
@@ -57,16 +72,3 @@ var sleep: float:
 		_sleep = value
 		calc_health()
 		sleep_changed.emit(value)
-
-func calc_health() -> void:
-	hp = roundi(
-		((sleep/100) * 33.33) + 
-		((sleep/100) * 33.33) + 
-		((sleep/100) * 33.33)
-	)
-
-func reset_stats() -> void:
-	_sleep = 100
-	_water = 100
-	_food = 100
-	calc_health()

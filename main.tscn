@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c22tgny4ob6vr" path="res://pages/settings.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b3blt4i3dc5vf" path="res://pages/tips.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ci6dn1vgrul7d" path="res://pages/mental_index.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bx2yjg21xihad" path="res://pages/health_index.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://c2h13fs0ms1pi" path="res://pages/mental_breathing.tscn" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://dqtpln88ax3ib" path="res://pages/physical_index.tscn" id="7_5vw27"]
 
 [node name="Main" type="Control" unique_id=967050731 node_paths=PackedStringArray("page_container")]
@@ -22,7 +22,8 @@ packed_pages = Dictionary[int, PackedScene]({
 2: ExtResource("4_1bvp3"),
 3: ExtResource("5_lquwl"),
 4: ExtResource("6_272bh"),
-5: ExtResource("7_5vw27")
+5: ExtResource("7_5vw27"),
+6: ExtResource("7_5vw27")
 })
 page_container = NodePath("PageContainer")
 

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c2h13fs0ms1pi"]
+
+[ext_resource type="Script" uid="uid://bs8mm22xrjwsy" path="res://pages/mental_breathing.gd" id="1_n28mw"]
+[ext_resource type="Texture2D" uid="uid://1gb3r0agepb5" path="res://assets/textures/creature.png" id="2_oc5ae"]
+
+[node name="MentalBreathing" type="Control" unique_id=82789646 node_paths=PackedStringArray("timer", "instruction_label", "repeat_label", "time_label", "end_button", "image")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n28mw")
+phases_titles = Array[String](["Breathe in...", "Hold your breath", "Breathe out..."])
+phases_durations = Array[float]([4.0, 7.0, 8.0])
+repeats = 3
+timer = NodePath("Timer")
+instruction_label = NodePath("MarginContainer/VBoxContainer/InstructLabel")
+repeat_label = NodePath("MarginContainer/VBoxContainer/RepeateLabel")
+time_label = NodePath("MarginContainer/VBoxContainer/TimeLabel")
+end_button = NodePath("MarginContainer/VBoxContainer/EndButton")
+image = NodePath("MarginContainer/VBoxContainer/TextureRect")
+metadata/_custom_type_script = "uid://bndygx316kdue"
+
+[node name="Timer" type="Timer" parent="." unique_id=530962460]
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=807578945]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=47399154]
+layout_mode = 2
+
+[node name="RepeateLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=400052352]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
+theme_override_font_sizes/font_size = 32
+text = "X/Y"
+horizontal_alignment = 1
+
+[node name="InstructLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=352949336]
+layout_mode = 2
+theme_override_font_sizes/font_size = 76
+text = "INSTRUCTION"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=833628239]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
+theme_override_font_sizes/font_size = 32
+text = "XX:XX"
+horizontal_alignment = 1
+
+[node name="EndButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1323309130]
+layout_mode = 2
+text = "END"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1526986137]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_oc5ae")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]

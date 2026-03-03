@@ -12,6 +12,7 @@ func _ready() -> void:
 	var sig: Signal = Stats.get(property + "_changed")
 	assert(sig, "Couldn't find signal " + property + " in Stats")
 	sig.connect(update_level)
+	update_level(Stats.get(property))
 
 func update_level(_value: float) -> void:
 	progress.value = _value

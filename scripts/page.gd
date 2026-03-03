@@ -4,8 +4,15 @@ enum Type {
 	HOME,
 	SETTINGS,
 	TIPS,
+
+	# Mental
 	MENTAL_INDEX,
+	MENTAL_BREATHING,
+	
+	# Health
 	HEALTH_INDEX,
+
+	# Physical
 	PHYSICAL_INDEX,
 }
 

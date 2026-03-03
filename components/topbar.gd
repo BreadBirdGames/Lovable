@@ -12,7 +12,6 @@ func _ready() -> void:
 	name_changed(SettingsStore.gochi_name)
 
 func hp_changed(hp: int) -> void:
-	print(hp)
 	hp_label.text = "HP: " + str(hp)
 
 func name_changed(new_name: String) -> void:

@@ -12,17 +12,21 @@ grow_horizontal = 2
 script = ExtResource("1_14kv3")
 icon = ExtResource("2_ue3ra")
 property = "food"
-progress = NodePath("HBoxContainer/ProgressBar")
-texture = NodePath("HBoxContainer/TextureRect")
+progress = NodePath("MarginContainer/HBoxContainer/ProgressBar")
+texture = NodePath("MarginContainer/HBoxContainer/TextureRect")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2090279578]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=359383239]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2090279578]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1433828950]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1433828950]
 layout_mode = 2
 expand_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=1858157559]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1858157559]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
