@@ -4,15 +4,14 @@ func _on_settings_button_pressed() -> void:
 	PageManager.goto_page(Page.Type.SETTINGS)
 
 func _on_tips_button_pressed() -> void:
-	pass # Replace with function body.
-
-func _on_physical_page_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_health_page_pressed() -> void:
-	pass # Replace with function body.
+	PageManager.goto_page(Page.Type.TIPS)
 
 
 func _on_mental_page_pressed() -> void:
-	pass # Replace with function body.
+	PageManager.goto_page(Page.Type.MENTAL_INDEX)
+
+func _on_health_page_pressed() -> void:
+	PageManager.goto_page(Page.Type.HEALTH_INDEX)
+
+func _on_physical_page_pressed() -> void:
+	PageManager.goto_page(Page.Type.PHYSICAL_INDEX)

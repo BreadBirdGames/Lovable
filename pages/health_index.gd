@@ -1,0 +1,1 @@
+class_name HealthIndex extends Page

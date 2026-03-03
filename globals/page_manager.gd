@@ -14,7 +14,6 @@ func get_page(_page_t: Page.Type) -> Page:
 	assert(packed != null, "Invalid page " + str(_page_t))
 
 	var page = packed.instantiate()
-	print(page)
 	assert(page is Page, "page is not of type page")
 
 	return page

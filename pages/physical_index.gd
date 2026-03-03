@@ -1,0 +1,1 @@
+class_name PhysicalIndex extends Page
