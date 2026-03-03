@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdb670tubnk3c" path="res://pages/settings.gd" id="1_1ofq1"]
 [ext_resource type="PackedScene" uid="uid://dlcjr2rnx4o1a" path="res://components/settings/volume_bar.tscn" id="2_q5qkr"]
+[ext_resource type="PackedScene" uid="uid://xgoixmpynp0k" path="res://components/settings/settings_check.tscn" id="3_ll8ay"]
 
 [node name="Settings" type="Control" unique_id=1897571648]
 layout_mode = 3
@@ -30,7 +31,7 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=165719317]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=11859122]
+[node name="SettingsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=11859122]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Settings"
@@ -55,13 +56,24 @@ layout_mode = 2
 title = "Voice acting"
 property = "voice_vol"
 
+[node name="SettingsCheck" parent="Panel/MarginContainer/VBoxContainer" unique_id=1052444605 instance=ExtResource("3_ll8ay")]
+layout_mode = 2
+text = "Notifications"
+property = "notifications"
+
 [node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1667069321]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Restorebutton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=21182514]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Restore default settings"
 
 [node name="SaveButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1387481957]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Save"
 
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Restorebutton" to="." method="_on_restorebutton_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

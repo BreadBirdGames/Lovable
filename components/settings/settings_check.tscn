@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xgoixmpynp0k"]
+
+[ext_resource type="Script" uid="uid://gjr6jledtg0d" path="res://components/settings/settings_check.gd" id="1_2gsvb"]
+
+[node name="SettingsCheck" type="CheckBox" unique_id=1052444605]
+script = ExtResource("1_2gsvb")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

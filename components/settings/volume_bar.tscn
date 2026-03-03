@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bdwccufl4h65j" path="res://components/settings/volume_bar.gd" id="1_18sxn"]
 
 [node name="VolumeBar" type="PanelContainer" unique_id=395744294 node_paths=PackedStringArray("slider", "label")]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 60)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
@@ -21,8 +21,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=724372895]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1565037057]
 layout_mode = 2
+step = 2.5
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
