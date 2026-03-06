@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://xgoixmpynp0k" path="res://pages/settings/components/settings_check.tscn" id="3_ll8ay"]
 [ext_resource type="PackedScene" uid="uid://biimbg7as7vn4" path="res://pages/settings/components/settings_input.tscn" id="4_kbnjn"]
 
-[node name="Settings" type="Control" unique_id=1897571648]
+[node name="Settings" type="Control" unique_id=1897571648 node_paths=PackedStringArray("notif_control", "notif_time_label", "notif_timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ofq1")
+notif_control = NodePath("Panel/MarginContainer/VBoxContainer/NotifControl")
+notif_time_label = NodePath("Panel/MarginContainer/VBoxContainer/NotifControl/HBoxContainer/Label")
+notif_timer = NodePath("NotifTimer")
+
+[node name="NotifTimer" type="Timer" parent="." unique_id=1235739805]
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=1586297693]
 layout_mode = 1
@@ -63,15 +68,50 @@ property = "voice_vol"
 [node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=747141755]
 layout_mode = 2
 
-[node name="NotificationCheck" parent="Panel/MarginContainer/VBoxContainer" unique_id=1052444605 instance=ExtResource("3_ll8ay")]
-layout_mode = 2
-text = "Notifications"
-property = "notifications"
-
 [node name="NameInput" parent="Panel/MarginContainer/VBoxContainer" unique_id=106771582 instance=ExtResource("4_kbnjn")]
 layout_mode = 2
 title = "Gochi's name"
 property = "gochi_name"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=1383373575]
+layout_mode = 2
+
+[node name="NotificationsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1804994043]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Notifications"
+
+[node name="NotificationCheck" parent="Panel/MarginContainer/VBoxContainer" unique_id=1052444605 instance=ExtResource("3_ll8ay")]
+layout_mode = 2
+text = "Enabled"
+property = "notifications"
+
+[node name="NotifControl" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1207687476]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/NotifControl" unique_id=964640419]
+layout_mode = 2
+text = "Time between notifications"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/NotifControl" unique_id=1740839297]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/NotifControl/HBoxContainer" unique_id=25380344]
+layout_mode = 2
+text = "0s"
+
+[node name="NotifTimeSlide" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/NotifControl/HBoxContainer" unique_id=1112561631]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+
+[node name="CheckBox" type="CheckBox" parent="Panel/MarginContainer/VBoxContainer/NotifControl" unique_id=1582673262]
+layout_mode = 2
+text = "Scheduled notifications"
+
+[node name="SendNotifButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/NotifControl" unique_id=1767746098]
+layout_mode = 2
+text = "Send notification"
 
 [node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=1667069321]
 layout_mode = 2
@@ -82,10 +122,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Restore defaults"
 
-[node name="SaveButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1387481957]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Save"
-
+[connection signal="timeout" from="NotifTimer" to="." method="_on_notif_timer_timeout"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/NotificationCheck" to="." method="_on_notification_check_toggled"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/NotifControl/HBoxContainer/NotifTimeSlide" to="." method="_on_notif_time_slide_value_changed"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/NotifControl/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/NotifControl/SendNotifButton" to="." method="_on_send_notif_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Restorebutton" to="." method="_on_restorebutton_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

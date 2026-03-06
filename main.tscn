@@ -21,6 +21,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
+default_page = null
+setup_page = null
 packed_pages = Dictionary[int, PackedScene]({
 0: ExtResource("2_h2yge"),
 1: ExtResource("3_5vw27"),
@@ -36,6 +38,9 @@ packed_pages = Dictionary[int, PackedScene]({
 })
 page_container = NodePath("PageContainer")
 
+[node name="NotifyTimer" type="Timer" parent="." unique_id=607844597]
+autostart = true
+
 [node name="PageContainer" type="Control" parent="." unique_id=1461640020]
 clip_contents = true
 layout_mode = 1
@@ -44,3 +49,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="timeout" from="NotifyTimer" to="." method="_on_notify_timer_timeout"]

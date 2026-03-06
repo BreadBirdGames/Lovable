@@ -53,6 +53,7 @@ var master_vol: float:
 
 		save_game.master_vol = value
 		update_volumes()
+		save()
 		master_vol_changed.emit(value)
 
 var sfx_vol: float:
@@ -64,6 +65,7 @@ var sfx_vol: float:
 
 		save_game.sfx_vol = value
 		update_volumes()
+		save()
 		sfx_vol_changed.emit(value)
 
 var music_vol: float:
@@ -75,6 +77,7 @@ var music_vol: float:
 
 		save_game.music_vol = value
 		update_volumes()
+		save()
 		music_vol_changed.emit(value)
 
 var voice_vol: float:
@@ -86,6 +89,7 @@ var voice_vol: float:
 
 		save_game.voice_vol = value
 		update_volumes()
+		save()
 		voice_vol_changed.emit(value)
 
 var notifications: bool:
@@ -96,6 +100,7 @@ var notifications: bool:
 			return
 		
 		save_game.notifications = value
+		save()
 		notifications_changed.emit(value)
 
 var gochi_name: String:
@@ -106,4 +111,5 @@ var gochi_name: String:
 			return
 		
 		save_game.gochi_name = value
+		save()
 		gochi_name_changed.emit(value)

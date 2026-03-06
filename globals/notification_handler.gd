@@ -97,7 +97,7 @@ func _on_permission_denied(_permission_name: String) -> void:
 
 
 ## Send a notification immediately with just a message.
-func Notify(message: String, title: String = "Notification") -> int:
+func Notify(message: String, title: String = "Notification from Healthgochi") -> int:
 	return schedule_notification(title, message, 0)
 
 
