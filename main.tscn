@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://diimjay2c652c" path="res://pages/health/sleep/health_sleep.tscn" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://ddiajl5raqwxi" path="res://pages/health/food/health_food.tscn" id="11_ycdy4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
+bg_color = Color(0.528062, 0.94552886, 1.1537726, 1)
+
 [node name="Main" type="Control" unique_id=967050731 node_paths=PackedStringArray("page_container")]
 layout_mode = 3
 anchors_preset = 15
@@ -21,8 +24,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
-default_page = null
-setup_page = null
 packed_pages = Dictionary[int, PackedScene]({
 0: ExtResource("2_h2yge"),
 1: ExtResource("3_5vw27"),
@@ -36,18 +37,22 @@ packed_pages = Dictionary[int, PackedScene]({
 9: ExtResource("11_ycdy4"),
 10: ExtResource("7_5vw27")
 })
-page_container = NodePath("PageContainer")
+page_container = NodePath("PanelContainer/PageContainer")
 
 [node name="NotifyTimer" type="Timer" parent="." unique_id=607844597]
 autostart = true
 
-[node name="PageContainer" type="Control" parent="." unique_id=1461640020]
-clip_contents = true
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=976800475]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="PageContainer" type="Control" parent="PanelContainer" unique_id=1461640020]
+clip_contents = true
+layout_mode = 2
 
 [connection signal="timeout" from="NotifyTimer" to="." method="_on_notify_timer_timeout"]

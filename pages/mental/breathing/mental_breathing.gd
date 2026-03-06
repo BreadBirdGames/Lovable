@@ -4,6 +4,7 @@ class_name MentalBreathing extends Page
 @export var intro_duration: float = 3.0
 @export var phases_titles: Array[String]
 @export var phases_durations: Array[float]
+@export var phases_animations: Array[String]
 @export var repeats: int = 1
 
 @export_group("Components")
@@ -13,6 +14,7 @@ class_name MentalBreathing extends Page
 @export var time_label: Label
 @export var end_button: Button
 @export var image: TextureRect
+@export var player: AnimationPlayer
 
 var phase_index: int = 0
 var repeat_index: int = 0
@@ -27,7 +29,14 @@ func start_intro() -> void:
 func start_phase() -> void:
 	instruction_label.text = phases_titles[phase_index]
 	timer.wait_time = phases_durations[phase_index]
+	set_animation()
 	timer.start()
+
+func set_animation() -> void:
+	var anim_name := phases_animations[phase_index]
+	var anim_length := player.get_animation(anim_name).length
+	player.speed_scale = anim_length / phases_durations[phase_index]
+	player.play(anim_name)
 
 func next_phase() -> void:
 	phase_index += 1
@@ -54,7 +63,7 @@ func end_phases() -> void:
 
 func _ready() -> void:
 	end_button.hide()
-	assert(phases_titles.size() == phases_durations.size(), "phase arrays not equal in length")
+	assert(phases_titles.size() == phases_durations.size() and phases_titles.size() == phases_animations.size(), "phase arrays not equal in length")
 	start_intro()
 
 func _process(_delta: float) -> void:

@@ -1,9 +1,88 @@
 [gd_scene format=3 uid="uid://c2h13fs0ms1pi"]
 
 [ext_resource type="Script" uid="uid://bs8mm22xrjwsy" path="res://pages/mental/breathing/mental_breathing.gd" id="1_n28mw"]
-[ext_resource type="Texture2D" uid="uid://1gb3r0agepb5" path="res://assets/textures/creature.png" id="2_oc5ae"]
+[ext_resource type="Texture2D" uid="uid://p3bvvi2hmp0e" path="res://assets/textures/Breathing_04.png" id="2_u4qg6"]
+[ext_resource type="Texture2D" uid="uid://dq5li0ik1bdiy" path="res://assets/textures/Breathing_01.png" id="3_xkds3"]
+[ext_resource type="Texture2D" uid="uid://cfm8cas36lkut" path="res://assets/textures/Breathing_05.png" id="3_ynm02"]
+[ext_resource type="Texture2D" uid="uid://ch2ca7vbqcgml" path="res://assets/textures/Breathing_03.png" id="4_jnjbj"]
+[ext_resource type="Texture2D" uid="uid://dvwcr10jv2bd3" path="res://assets/textures/Breathing_02.png" id="4_u4qg6"]
+[ext_resource type="Texture2D" uid="uid://baq6a55s0r4u6" path="res://assets/textures/Breathing_06.png" id="7_dtm6e"]
+[ext_resource type="Texture2D" uid="uid://bu2ptnc3ydqrt" path="res://assets/textures/Breathing_07.png" id="8_6jc6g"]
+[ext_resource type="Texture2D" uid="uid://dtjtev1l4v0br" path="res://assets/textures/Breathing_08.png" id="9_o5fus"]
+[ext_resource type="Texture2D" uid="uid://cqd4lmbpkwn3q" path="res://assets/textures/Breathing_09.png" id="10_fe1oi"]
+[ext_resource type="Texture2D" uid="uid://hgx7mcww4tom" path="res://assets/textures/Breathing_10.png" id="11_xvd6e"]
+[ext_resource type="Texture2D" uid="uid://brwvb0j5nljtq" path="res://assets/textures/Breathing_11.png" id="12_byoqc"]
 
-[node name="MentalBreathing" type="Control" unique_id=82789646 node_paths=PackedStringArray("timer", "instruction_label", "repeat_label", "time_label", "end_button", "image")]
+[sub_resource type="Animation" id="Animation_nqsk2"]
+resource_name = "Hold"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_u4qg6"), ExtResource("3_ynm02")]
+}
+
+[sub_resource type="Animation" id="Animation_puo1w"]
+resource_name = "In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_xkds3"), ExtResource("4_u4qg6"), ExtResource("4_jnjbj")]
+}
+
+[sub_resource type="Animation" id="Animation_xkds3"]
+resource_name = "Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.33333334, 0.5, 0.6667, 0.8334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_dtm6e"), ExtResource("8_6jc6g"), ExtResource("9_o5fus"), ExtResource("10_fe1oi"), ExtResource("11_xvd6e"), ExtResource("12_byoqc")]
+}
+
+[sub_resource type="Animation" id="Animation_jnjbj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_xkds3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqsk2"]
+_data = {
+&"Hold": SubResource("Animation_nqsk2"),
+&"In": SubResource("Animation_puo1w"),
+&"Out": SubResource("Animation_xkds3"),
+&"RESET": SubResource("Animation_jnjbj")
+}
+
+[node name="MentalBreathing" type="Control" unique_id=82789646 node_paths=PackedStringArray("timer", "instruction_label", "repeat_label", "time_label", "end_button", "image", "player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +92,7 @@ grow_vertical = 2
 script = ExtResource("1_n28mw")
 phases_titles = Array[String](["Breathe in...", "Hold your breath", "Breathe out..."])
 phases_durations = Array[float]([4.0, 7.0, 8.0])
+phases_animations = Array[String](["In", "Hold", "Out"])
 repeats = 3
 timer = NodePath("Timer")
 instruction_label = NodePath("MarginContainer/VBoxContainer/InstructLabel")
@@ -20,10 +100,14 @@ repeat_label = NodePath("MarginContainer/VBoxContainer/RepeateLabel")
 time_label = NodePath("MarginContainer/VBoxContainer/TimeLabel")
 end_button = NodePath("MarginContainer/VBoxContainer/EndButton")
 image = NodePath("MarginContainer/VBoxContainer/TextureRect")
+player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://bndygx316kdue"
 
 [node name="Timer" type="Timer" parent="." unique_id=530962460]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=23493405]
+libraries/ = SubResource("AnimationLibrary_nqsk2")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=807578945]
 layout_mode = 1
@@ -32,10 +116,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=47399154]
 layout_mode = 2
@@ -64,12 +145,14 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "END"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1526986137]
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1197378013]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_oc5ae")
-expand_mode = 1
-stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1526986137]
+layout_mode = 2
+texture = ExtResource("3_xkds3")
+expand_mode = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
