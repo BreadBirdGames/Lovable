@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 		position.x = lerp(position.x, (mouse_pos.x - pivot_offset.x), delta * 8)
 	else:
 		position.x = lerp(position.x, zero_pos.x, delta * 8)
+		rotation = lerp(rotation, 0.0, delta * 8)
 	
 
 func _input(event: InputEvent) -> void:
@@ -34,5 +35,5 @@ func _input(event: InputEvent) -> void:
 			else:
 				if is_dragging: # No longer dragging
 					is_dragging = false
-					rotation = 0.0
+					
 					start_mouse_pos = Vector2.ZERO
