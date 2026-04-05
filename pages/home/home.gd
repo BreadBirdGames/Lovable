@@ -6,8 +6,8 @@ class_name Home extends Page
 @export var counter: Label
 
 var count: int = 0
-var left_marks_tween: Tween
-var right_marks_tween: Tween
+var left_mark_tween: Tween
+var right_mark_tween: Tween
 
 func _ready() -> void:
 	left_mark.hide()
@@ -31,23 +31,23 @@ func _on_drag_card_dropped_on_right() -> void:
 
 func _on_drag_card_drag_switch(state: bool) -> void:
 	print(state)
-	if left_marks_tween:
-		left_marks_tween.kill()
-	left_marks_tween = get_tree().create_tween()
+	if left_mark_tween:
+		left_mark_tween.kill()
+	left_mark_tween = get_tree().create_tween().bind_node(left_mark)
 	
-	if right_marks_tween:
-		right_marks_tween.kill()
-	right_marks_tween = get_tree().create_tween()
+	if right_mark_tween:
+		right_mark_tween.kill()
+	right_mark_tween = get_tree().create_tween().bind_node(right_mark)
 	
 	if state: # We're hovering
 		left_mark.show()
 		right_mark.show()
 	
-		left_marks_tween.tween_property(left_mark, "modulate", Color.WHITE, mark_tween_time)
-		right_marks_tween.tween_property(right_mark, "modulate", Color.WHITE, mark_tween_time)
+		left_mark_tween.tween_property(left_mark, "modulate", Color.WHITE, mark_tween_time)
+		right_mark_tween.tween_property(right_mark, "modulate", Color.WHITE, mark_tween_time)
 	else:
-		left_marks_tween.tween_property(left_mark, "modulate", Color.TRANSPARENT, mark_tween_time)
-		right_marks_tween.tween_property(right_mark, "modulate", Color.TRANSPARENT, mark_tween_time)
+		left_mark_tween.tween_property(left_mark, "modulate", Color.TRANSPARENT, mark_tween_time)
+		right_mark_tween.tween_property(right_mark, "modulate", Color.TRANSPARENT, mark_tween_time)
 		
-		left_marks_tween.tween_callback(left_mark.hide)
-		right_marks_tween.tween_callback(right_mark.hide)
+		left_mark_tween.tween_callback(left_mark.hide)
+		right_mark_tween.tween_callback(right_mark.hide)
