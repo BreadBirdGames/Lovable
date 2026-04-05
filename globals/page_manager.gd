@@ -9,19 +9,15 @@ var page_container: Control
 # Internal values
 var page_stack: Array[Page]
 
-func get_page(_page_t: Page.Type) -> Page:
-	var packed: PackedScene = packed_pages.get(_page_t)
-	assert(packed != null, "Invalid page " + str(_page_t))
-
-	var page = packed.instantiate()
-	assert(page is Page, "page is not of type page")
-
-	return page
-
 func set_values(_default_page: Page.Type, _packed_pages: Dictionary[Page.Type, PackedScene], _page_container: Control) -> void:
 	default_page = _default_page
 	packed_pages = _packed_pages
 	page_container = _page_container
+
+func get_page(_page_t: Page.Type) -> Page:
+	var packed: PackedScene = packed_pages.get(_page_t)
+	var page = packed.instantiate()
+	return page
 
 func goto_page(_page_t: Page.Type) -> void:
 	var page := get_page(_page_t)

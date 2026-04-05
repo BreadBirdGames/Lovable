@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://xgoixmpynp0k"]
-
-[ext_resource type="Script" uid="uid://gjr6jledtg0d" path="res://pages/settings/components/settings_check.gd" id="1_2gsvb"]
-
-[node name="SettingsCheck" type="CheckBox" unique_id=1052444605]
-theme_override_font_sizes/font_size = 24
-script = ExtResource("1_2gsvb")
-
-[connection signal="toggled" from="." to="." method="_on_toggled"]

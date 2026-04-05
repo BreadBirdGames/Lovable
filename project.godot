@@ -15,7 +15,6 @@ run/main_scene="uid://npwgpbxaud2i"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.6")
 run/low_processor_mode=true
-boot_splash/image="uid://dxiy5ml6jb6w7"
 config/icon="res://icon.svg"
 
 [audio]
@@ -27,7 +26,6 @@ buses/default_bus_layout="uid://bllhnysj6wuh2"
 NotificationHandler="*res://globals/notification_handler.gd"
 Stats="*uid://dncp7c7kk5j5j"
 PageManager="*uid://dcv7rathwyh1y"
-SettingsStore="*uid://dtp5tj2cjka03"
 
 [display]
 

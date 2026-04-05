@@ -10,7 +10,7 @@ class_name Main extends Control
 
 func _ready() -> void:
 	PageManager.set_values(default_page, packed_pages, page_container)
-	if FileAccess.file_exists(Setup.SETUP_FILE_PATH):
-		PageManager.goto_page(default_page)
-	else:
-		PageManager.goto_page(setup_page)
+	#if FileAccess.file_exists(Setup.SETUP_FILE_PATH):
+	PageManager.goto_page(default_page)
+	#else:
+	#	PageManager.goto_page(setup_page)

@@ -1,1 +1,0 @@
-class_name Tips extends Page

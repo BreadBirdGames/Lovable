@@ -7,18 +7,6 @@ enum Type {
 	SETTINGS,
 	TIPS,
 
-	# Mental
-	MENTAL_INDEX,
-	MENTAL_BREATHING,
-	
-	# Health
-	HEALTH_INDEX,
-	HEALTH_WATER,
-	HEALTH_SLEEP,
-	HEALTH_FOOD,
-
-	# Physical
-	PHYSICAL_INDEX,
 }
 
 func set_active(activity: bool) -> void:
