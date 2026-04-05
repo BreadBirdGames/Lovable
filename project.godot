@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Healthgochi"
+config/name="Lovable"
 run/main_scene="uid://npwgpbxaud2i"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.6")

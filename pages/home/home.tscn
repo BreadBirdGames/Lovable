@@ -2,9 +2,22 @@
 
 [ext_resource type="Theme" uid="uid://ce6ud5nyjnb70" path="res://assets/theme.tres" id="1_0mo4e"]
 [ext_resource type="Script" uid="uid://jpt6yhi6llsh" path="res://pages/home/home.gd" id="1_ejprr"]
+[ext_resource type="Shader" uid="uid://7hqn3iohfikq" path="res://shaders/fade.gdshader" id="3_lmsry"]
 [ext_resource type="Script" uid="uid://hx3auoh4dqgl" path="res://pages/components/drag_card.gd" id="3_uitki"]
 
-[node name="Home" type="Control" unique_id=1181107481]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bideo"]
+shader = ExtResource("3_lmsry")
+shader_parameter/fade_width = 0.995
+shader_parameter/threshold = 0.5
+shader_parameter/flip = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmsry"]
+shader = ExtResource("3_lmsry")
+shader_parameter/fade_width = 0.995
+shader_parameter/threshold = 0.5
+shader_parameter/flip = true
+
+[node name="Home" type="Control" unique_id=1181107481 node_paths=PackedStringArray("left_mark", "right_mark", "counter")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +28,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0mo4e")
 script = ExtResource("1_ejprr")
+left_mark = NodePath("LeftMark")
+right_mark = NodePath("RightMark")
+counter = NodePath("Label")
+
+[node name="LeftMark" type="ColorRect" parent="." unique_id=2128904547]
+material = SubResource("ShaderMaterial_bideo")
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 90.0
+grow_vertical = 2
+
+[node name="RightMark" type="ColorRect" parent="." unique_id=795637180]
+material = SubResource("ShaderMaterial_lmsry")
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="DragCard" type="Control" parent="." unique_id=1389232013]
 custom_minimum_size = Vector2(250, 350)
@@ -32,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(125, 175)
 script = ExtResource("3_uitki")
-max_rotation = 0.25
+max_rotation = 0.15
 
 [node name="PanelContainer" type="PanelContainer" parent="DragCard" unique_id=2024725817]
 layout_mode = 1
@@ -48,3 +83,19 @@ layout_mode = 2
 [node name="Label" type="Label" parent="DragCard/PanelContainer/CenterContainer" unique_id=338149517]
 layout_mode = 2
 text = "HELO!"
+
+[node name="Label" type="Label" parent="." unique_id=48489401]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
+
+[connection signal="drag_switch" from="DragCard" to="." method="_on_drag_card_drag_switch"]
+[connection signal="dropped_on_left" from="DragCard" to="." method="_on_drag_card_dropped_on_left"]
+[connection signal="dropped_on_right" from="DragCard" to="." method="_on_drag_card_dropped_on_right"]
