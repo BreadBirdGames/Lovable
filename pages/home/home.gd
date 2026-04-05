@@ -20,17 +20,14 @@ func _ready() -> void:
 #	PageManager.goto_page(Page.Type.SETTINGS)
 
 func _on_drag_card_dropped_on_left() -> void:
-	print("On left!")
 	count -= 1
 	counter.text = "SCORE: " + str(count)
 
 func _on_drag_card_dropped_on_right() -> void:
-	print("On right!")
 	count += 1
 	counter.text = "SCORE: " + str(count)
 
 func _on_drag_card_drag_switch(state: bool) -> void:
-	print(state)
 	if left_mark_tween:
 		left_mark_tween.kill()
 	left_mark_tween = get_tree().create_tween().bind_node(left_mark)

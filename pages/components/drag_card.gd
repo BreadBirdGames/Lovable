@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 			float(
 					clamp(
 						(mouse_pos.x - pivot_offset.x),
-						pivot_offset.x -max_position,
+						-max_position,
 						max_position
 					)
 				),
